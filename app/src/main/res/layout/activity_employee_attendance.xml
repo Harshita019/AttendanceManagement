@@ -3,58 +3,207 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".EmployeeAttendance"
+    android:layout_height="wrap_content"
+    tools:context=".activity.EmployeeAttendance"
+    android:layout_margin="10dp"
     android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/view_name"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="name"/>
-
+    <!--name date-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:padding="12dp"
         android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/tv_time"
+            android:id="@+id/view_name"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Time"/>
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:text="name"/>
 
         <TextView
             android:id="@+id/tv_date"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:textAlignment="textEnd"
             android:layout_weight="1"
             android:text="Date"/>
 
 
     </LinearLayout>
 
-
-    <RadioGroup
-        android:id="@+id/radio_group"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:weightSum="2"
-        android:orientation="horizontal">
-        <RadioButton android:id="@+id/radio_present"
-            android:layout_width="0dp"
-            android:layout_weight="1"
+        android:orientation="vertical"
+        android:background="@drawable/border">
+
+        <TextView
+            android:id="@+id/tv_logInOut"
+            style="@style/textView"
+            android:text="Login Logout"
+            android:drawableEnd="@drawable/baseline_arrow_drop_down_24"/>
+
+
+        <LinearLayout
+            android:id="@+id/ll_logInOut"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Login"/>
-        <RadioButton android:id="@+id/radio_absent"
-            android:layout_width="0dp"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/bt_loginbutton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Login"/>
+
+            <Button
+                android:id="@+id/bt_logoutbutton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Logout"/>
+
+            <TextView
+                android:id="@+id/tv_logtime"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:padding="12dp"
+                android:text="Time"/>
+
+            <TextView
+                android:id="@+id/tv_timestamp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="12dp"
+                android:text="TimeStamp"/>
+
+            <Button
+                android:id="@+id/bt_logSubmit"
+                style="@style/button"
+                android:layout_marginTop="16dp"
+                android:text="Submit"/>
+
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="20dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/border">
+
+        <TextView
+            android:id="@+id/tv_breakInOut"
+            style="@style/textView"
+            android:text="Breakin BreakOut"
+            android:drawableEnd="@drawable/baseline_arrow_drop_down_24"/>
+
+        <LinearLayout
+            android:id="@+id/ll_breakInOut"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Logout"/>
-    </RadioGroup>
+            android:visibility="gone"
+            android:orientation="vertical">
+
+            <RadioGroup
+                android:id="@+id/breakRadio_group"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:weightSum="2"
+                android:orientation="horizontal">
+                <RadioButton android:id="@+id/breakRadio_present"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="Break in"/>
+                <RadioButton android:id="@+id/breakRadio_absent"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Break out"/>
+            </RadioGroup>
+
+            <Button
+                android:id="@+id/bt_breakSubmit"
+                android:layout_marginTop="16dp"
+                style="@style/button"
+                android:text="Submit"/>
+
+            <TextView
+                android:id="@+id/tv_breaktime"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:padding="12dp"
+                android:text="Time"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="20dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/border">
+
+        <TextView
+            android:id="@+id/tv_leaveApplication"
+            style="@style/textView"
+            android:text="Application"
+            android:clickable="true"
+            android:drawableEnd="@drawable/baseline_arrow_drop_down_24"/>
+
+            <LinearLayout
+                android:id="@+id/ll_leaveApplication"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="12dp"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/tv_leaveDepartment"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="department"/>
+
+                <TextView
+                    android:id="@+id/tv_leaveName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="name"/>
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="reason"/>
+
+                <Button
+                    android:id="@+id/bt_leaveSubmit"
+                    android:layout_marginTop="16dp"
+                    style="@style/button"
+                    android:text="Submit"/>
+
+            </LinearLayout>
+
+    </LinearLayout>
 
 
 
-
-</LinearLayout>
+    </LinearLayout>

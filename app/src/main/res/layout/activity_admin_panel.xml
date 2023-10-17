@@ -4,78 +4,105 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AdminPanel"
+    tools:context=".activity.AdminPanel"
+    android:layout_margin="10dp"
     android:orientation="vertical">
 
-    <Button
-        android:id="@+id/bt_addEmp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:text="Add Employee"/>
-
     <LinearLayout
-        android:id="@+id/ll_addEmp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:visibility="gone">
+        android:background="@drawable/border">
 
-        <EditText
-            android:id="@+id/idEdtCourseName"
+        <TextView
+            android:id="@+id/bt_addEmp"
+            style="@style/textView"
+            android:text="Add Employee"
+            android:drawableEnd="@drawable/baseline_arrow_drop_down_24"/>
+
+        <LinearLayout
+            android:id="@+id/ll_addEmp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:hint="Name" />
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <EditText
+                android:id="@+id/et_empName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:hint="Name" />
 
 
-        <EditText
-            android:id="@+id/idEdtCourseDuration"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:hint="Department" />
+            <EditText
+                android:id="@+id/et_empDepartment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:hint="Department" />
 
 
-        <EditText
-            android:id="@+id/idEdtCourseTracks"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:hint="Login ID" />
+            <EditText
+                android:id="@+id/et_empLoginID"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:hint="Login ID" />
 
 
-        <EditText
-            android:id="@+id/idEdtCourseDescription"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:hint="Password" />
+            <EditText
+                android:id="@+id/et_empPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:hint="Password" />
 
 
-        <Button
-            android:id="@+id/idBtnAddCourse"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:text="Employee details added"
-            android:textAllCaps="false" />
+            <Button
+                android:id="@+id/idBtnAddCourse"
+                style="@style/button"
+                android:text="Employee details added"/>
+        </LinearLayout>
     </LinearLayout>
 
-    <Button
-        android:id="@+id/idBtnReadCourse"
+    <Space
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:text="View Employees"
-        android:textAllCaps="false" />
+        android:layout_height="24dp"/>
 
-    <Button
-        android:id="@+id/idBtnReadAttendance"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:text="View Attendance"
-        android:textAllCaps="false" />
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/idBtnReadCourse"
+            style="@style/button"
+            android:layout_weight="1"
+            android:text="View Employees"/>
+
+        <Space
+            android:layout_width="24dp"
+            android:layout_height="match_parent"/>
+
+        <Button
+            android:id="@+id/idBtnReadAttendance"
+            style="@style/button"
+            android:layout_weight="1"
+            android:text="View Attendance"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/idBtnReadBreakTime"
+            style="@style/button"
+            android:layout_weight="1"
+            android:text="View Breaktime"/>
+    </LinearLayout>
 
 </LinearLayout>

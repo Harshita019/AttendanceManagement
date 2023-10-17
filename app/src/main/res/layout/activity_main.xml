@@ -5,79 +5,87 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:layout_margin="10dp"
     tools:context=".MainActivity">
 
-
-    <Button
-        android:id="@+id/bt_admin"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:text="Admin"/>
-   <LinearLayout
-       android:id="@+id/ll_admin"
-       android:layout_width="match_parent"
-       android:layout_height="wrap_content"
-       android:orientation="vertical"
-       android:visibility="gone">
-
-       <EditText
-           android:id="@+id/et_user"
-           android:layout_width="match_parent"
-           android:layout_height="wrap_content"
-           android:layout_margin="10dp"
-           android:hint="Username" />
-
-
-       <EditText
-           android:id="@+id/et_pass"
-           android:layout_width="match_parent"
-           android:layout_height="wrap_content"
-           android:layout_margin="10dp"
-           android:hint="Password" />
-
-       <Button
-           android:id="@+id/bt_login"
-           android:layout_width="match_parent"
-           android:layout_height="wrap_content"
-           android:layout_margin="10dp"
-           android:text="Login"/>
-   </LinearLayout>
-
-
-    <Button
-        android:id="@+id/bt_openEmplayer"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:text="Employee"/>
     <LinearLayout
-        android:id="@+id/ll_employee"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:background="@drawable/border">
 
-        <EditText
-            android:id="@+id/et_loginID"
+        <TextView
+            android:id="@+id/bt_admin"
+            style="@style/textView"
+            android:text="Login as Admin"
+            android:drawableEnd="@drawable/baseline_arrow_drop_down_24"/>
+
+        <LinearLayout
+            android:id="@+id/ll_admin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:hint="Username" />
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <EditText
+                android:id="@+id/et_user"
+                style="@style/editText"
+                android:hint="Username" />
 
 
-        <EditText
-            android:id="@+id/et_password"
+            <EditText
+                android:id="@+id/et_pass"
+                style="@style/editText"
+                android:hint="Password" />
+
+            <Button
+                android:id="@+id/bt_login"
+                style="@style/button"
+                android:text="Login"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+
+<Space
+    android:layout_width="match_parent"
+    android:layout_height="24dp"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/border">
+
+        <TextView
+            android:id="@+id/bt_openEmplayer"
+            style="@style/textView"
+            android:text="Login as Employee"
+            android:drawableEnd="@drawable/baseline_arrow_drop_down_24"/>
+
+        <LinearLayout
+            android:id="@+id/ll_employee"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:hint="Password" />
+            android:orientation="vertical"
+            android:visibility="gone">
 
-        <Button
-            android:id="@+id/bt_empLogin"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:text="Login"/>
+            <EditText
+                android:id="@+id/et_loginID"
+                style="@style/editText"
+                android:hint="Username" />
+
+
+            <EditText
+                android:id="@+id/et_password"
+                style="@style/editText"
+                android:hint="Password" />
+
+            <Button
+                android:id="@+id/bt_empLogin"
+                style="@style/button"
+                android:text="Login"/>
+        </LinearLayout>
     </LinearLayout>
 
 </LinearLayout>

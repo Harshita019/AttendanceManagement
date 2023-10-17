@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-
     <!--recycler view for displaying our courses-->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/idRVAttendance"

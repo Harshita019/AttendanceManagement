@@ -6,4 +6,24 @@
     </style>
 
     <style name="Theme.Database" parent="Base.Theme.Database" />
+
+    <style name="textView" parent="ThemeOverlay.Material3.AutoCompleteTextView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:padding">12dp</item>
+    </style>
+
+    <style name="editText" parent="ThemeOverlay.Material3.TextInputEditText">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:padding">12dp</item>
+    </style>
+
+    <style name="button" parent="ThemeOverlay.Material3.Button.ElevatedButton">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="backgroundTint">#03A9F4</item>
+        <item name="android:textSize">16sp</item>
+    </style>
 </resources>

@@ -13,16 +13,19 @@
         android:theme="@style/Theme.Database"
         tools:targetApi="31">
         <activity
-            android:name=".ViewAttendance"
+            android:name=".activity.ViewBreakTime"
             android:exported="false" />
         <activity
-            android:name=".EmployeeAttendance"
+            android:name=".activity.ViewAttendance"
             android:exported="false" />
         <activity
-            android:name=".AdminPanel"
+            android:name=".activity.EmployeeAttendance"
             android:exported="false" />
         <activity
-            android:name=".ViewCourses"
+            android:name=".activity.AdminPanel"
+            android:exported="false" />
+        <activity
+            android:name=".activity.ViewCourses"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

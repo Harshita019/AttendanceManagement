@@ -5,15 +5,23 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.database.activity.AdminPanel;
+import com.example.database.activity.EmployeeAttendance;
+import com.example.database.database.DBHandler;
 
 public class MainActivity extends AppCompatActivity {
     private EditText user, password, loginId, empPassword;
-    private Button login, admin, empLogin, empLayer;
+    private Button login, empLogin;
+
+    TextView admin, empLayer;
 
     LinearLayout l_admin, l_employee;
     private DBHandler dbHandler;
@@ -36,14 +44,20 @@ public class MainActivity extends AppCompatActivity {
         loginId = findViewById(R.id.et_loginID);
         empPassword = findViewById(R.id.et_password);
 
+        dbHandler = new DBHandler(MainActivity.this);
 
-
-                dbHandler = new DBHandler(MainActivity.this);
-
-                admin.setOnClickListener(new View.OnClickListener() {
+        admin.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        l_admin.setVisibility(View.VISIBLE);
+
+                        if(l_admin.getVisibility() == View.VISIBLE){
+                            l_admin.setVisibility(View.GONE);
+                            l_employee.setVisibility(View.VISIBLE);
+                        }
+                        else {
+                            l_admin.setVisibility(View.VISIBLE);
+                            l_employee.setVisibility(View.GONE);
+                        }
 
                         login.setOnClickListener(new View.OnClickListener() {
                             @Override
@@ -53,13 +67,12 @@ public class MainActivity extends AppCompatActivity {
                                 String str_pass = password.getText().toString();
 
                                 if (str_user.equals("") || str_pass.equals("")) {
+
                                     Intent i = new Intent(MainActivity.this, AdminPanel.class);
                                     startActivity(i);
                                     Toast.makeText(MainActivity.this, "Login Successfully", Toast.LENGTH_SHORT).show();
                                     user.setText("");
                                     password.setText("");
-
-
                                 }
 
                                 else{
@@ -67,45 +80,29 @@ public class MainActivity extends AppCompatActivity {
                                     Toast.makeText(MainActivity.this, "Please enter all the data..", Toast.LENGTH_SHORT).show();
                                 }
 
-
-
                             }
                         });
                     }
                 });
 
-        empLogin.setOnClickListener(new View.OnClickListener() {
+        empLayer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String str_loginId = loginId.getText().toString();
-                String str_empPassword = empPassword.getText().toString();
-
-                if(str_loginId.equals("")||str_empPassword.equals(""))
-                    Toast.makeText(MainActivity.this, "All fields are mandatory", Toast.LENGTH_SHORT).show();
-                else{
-                    Boolean checkCredentials = dbHandler.checkNamePassword(str_loginId, str_empPassword);
-                    if(checkCredentials == true){
-                        Toast.makeText(MainActivity.this, "Login Successfully!", Toast.LENGTH_SHORT).show();
-                        Intent intent  = new Intent(MainActivity.this, EmployeeAttendance.class);
-                        startActivity(intent);
-                    }else{
-                        Toast.makeText(MainActivity.this, "Invalid Credentials", Toast.LENGTH_SHORT).show();
-                    }
-                }
-
-            }
-        });
-
-        /*empLayer.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                l_employee.setVisibility(View.VISIBLE);
+               if(l_employee.getVisibility() == View.VISIBLE){
+                   l_employee.setVisibility(View.GONE);
+                   l_admin.setVisibility(View.VISIBLE);
+               }
+               else {
+                   l_employee.setVisibility(View.VISIBLE);
+                   l_admin.setVisibility(View.GONE);
+               }
 
                 empLogin.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                       String str_loginId = loginId.getText().toString();
-                       String str_empPassword = empPassword.getText().toString();
+                        String str_loginId = loginId.getText().toString();
+                        String str_empPassword = empPassword.getText().toString();
+
 
                         if(str_loginId.equals("")||str_empPassword.equals(""))
                             Toast.makeText(MainActivity.this, "All fields are mandatory", Toast.LENGTH_SHORT).show();
@@ -113,8 +110,9 @@ public class MainActivity extends AppCompatActivity {
                             Boolean checkCredentials = dbHandler.checkNamePassword(str_loginId, str_empPassword);
                             if(checkCredentials == true){
                                 Toast.makeText(MainActivity.this, "Login Successfully!", Toast.LENGTH_SHORT).show();
-                                *//*Intent intent  = new Intent(getApplicationContext(), MainActivity.class);
-                                startActivity(intent);*//*
+                                Intent intent  = new Intent(MainActivity.this, EmployeeAttendance.class);
+                                intent.putExtra("getName", str_loginId);
+                                startActivity(intent);
                             }else{
                                 Toast.makeText(MainActivity.this, "Invalid Credentials", Toast.LENGTH_SHORT).show();
                             }
@@ -123,7 +121,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
             }
-        });*/
+        });
 
 
 
